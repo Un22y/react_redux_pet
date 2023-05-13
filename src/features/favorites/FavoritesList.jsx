@@ -11,7 +11,7 @@ const FavoritesList = ({list}) => {
     useEffect(() => {
         dispatch(fetchFavorites());
         console.log(favoriteLink.href)
-    },[list])
+    },[list, dispatch])
 
     return (
         <>

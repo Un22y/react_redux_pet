@@ -13,8 +13,8 @@ const NavButtons = ({pages}) => {
 
     return (
         <div className={classes.navbuttons_box}>
-            <button className={classes.navbutton_button} value={'-'} disabled={characters.page == 1} onClick={switchPage}>prev page</button>
-            <button className={classes.navbutton_button} value={'+'} disabled={characters.page == pages} onClick={switchPage}>next page</button>
+            <button className={classes.navbutton_button} value={'-'} disabled={characters.page === 1} onClick={switchPage}>prev page</button>
+            <button className={classes.navbutton_button} value={'+'} disabled={characters.page === pages} onClick={switchPage}>next page</button>
         </div>
     )
 }

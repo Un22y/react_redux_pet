@@ -24,39 +24,39 @@ export const fetchCharacters = createAsyncThunk('characters/fetchCharacters', as
 
 
 const characterSlice = createSlice({
-    name:'characters',
+    name: 'characters',
     initialState,
     reducers: {
-        changePage: (state,action) => {
-            action.payload == '+' ?
-            state.page += 1
-            :
-            state.page -= 1;
+        changePage: (state, action) => {
+            action.payload === '+' ?
+                state.page += 1
+                :
+                state.page -= 1;
             charactersLink.searchParams.set('page', state.page);
         },
-        pageByNumber: (state,action) => {
+        pageByNumber: (state, action) => {
             state.page = action.payload;
             charactersLink.searchParams.set('page', state.page);
         },
-        addStatus: (state,action) => {
+        addStatus: (state, action) => {
             state.status = action.payload;
             charactersLink.searchParams.set('status', state.status);
             state.page = 1;
             charactersLink.searchParams.set('page', '1');
         },
-        addGender: (state,action) => {
+        addGender: (state, action) => {
             state.status = action.payload;
             charactersLink.searchParams.set('gender', state.status);
             state.page = 1;
             charactersLink.searchParams.set('page', '1');
         },
-        addName: (state,action) => {
+        addName: (state, action) => {
             state.name = action.payload;
             charactersLink.searchParams.set('name', state.name);
             state.page = 1;
             charactersLink.searchParams.set('page', '1');
         },
-        
+
     },
     extraReducers: (builder) => {
         builder.addCase(fetchCharacters.pending, (state) => {
@@ -76,5 +76,5 @@ const characterSlice = createSlice({
 })
 
 
-export const {changePage,pageByNumber,addStatus,addGender,addName} = characterSlice.actions;
+export const { changePage, pageByNumber, addStatus, addGender, addName } = characterSlice.actions;
 export default characterSlice.reducer

@@ -11,7 +11,7 @@ const MySelect = ({props, callback}) => {
                         key={index}
                         value={prop}
                     >
-                        {prop == '' ? 'All' : prop}
+                        {prop === '' ? 'All' : prop}
                     </option>
                 )}
             </select>

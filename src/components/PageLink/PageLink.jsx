@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchCharacters, pageByNumber } from "../../features/characters/charactersSlice";
 import classes from './PageLink.module.css'
 
@@ -16,7 +16,7 @@ const PageLink = ({id,current,isShow}) => {
             {
                 isShow ?
                 <button 
-                    className={current == id ? `${classes.pagelink} ${classes.pagelink_current}` : classes.pagelink} 
+                    className={current === id ? `${classes.pagelink} ${classes.pagelink_current}` : classes.pagelink} 
                     value={id} 
                     onClick={goToPage}>{id}
                 </button> 

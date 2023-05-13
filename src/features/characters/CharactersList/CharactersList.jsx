@@ -4,7 +4,6 @@ import { fetchData } from "./../../data/dataSlice";
 import { switchItem } from "../../favorites/favoritesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import CharacterItem from "../characterItem/CharacterItem";
-import classes from "./CharactersList.module.css"
 
 
 const CharactersList = () => {
@@ -15,7 +14,7 @@ const CharactersList = () => {
     useEffect(() => {
         dispatch(fetchCharacters())
         dispatch(fetchData())
-    }, [characters.page])
+    }, [characters.page, dispatch])
 
     return (
         <div className='grid_container'>
