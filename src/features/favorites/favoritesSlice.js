@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import {favoriteLink} from '../../api/postage'
+import { favoriteLink } from '../../api/postage'
 
 const favorites = localStorage.getItem('favorites')
 console.log(favorites)
 
 const initialState = {
-    loading:false,
-    error:'',
+    loading: false,
+    error: '',
     data: [],
     list: favorites ? JSON.parse(favorites) : [],
 }
@@ -20,13 +20,13 @@ export const fetchFavorites = createAsyncThunk('favorites/fetchFavorites', async
 })
 
 const favoritesSlice = createSlice({
-    name:'favorites',
+    name: 'favorites',
     initialState,
     reducers: {
         switchItem: (state, action) => {
-            if(state.list.includes(action.payload)) {
-                state.list = state.list.filter(elem => elem != action.payload)
-            }   
+            if (state.list.includes(action.payload)) {
+                state.list = state.list.filter(elem => elem !== action.payload)
+            }
             else {
                 state.list.push(action.payload);
             };
@@ -40,7 +40,7 @@ const favoritesSlice = createSlice({
         })
         builder.addCase(fetchFavorites.fulfilled, (state, action) => {
             state.loading = false
-            action.payload instanceof Array ? state.data = action.payload :state.data = [action.payload];
+            action.payload instanceof Array ? state.data = action.payload : state.data = [action.payload];
             state.error = ''
         })
         builder.addCase(fetchFavorites.rejected, (state, action) => {
@@ -51,5 +51,5 @@ const favoritesSlice = createSlice({
     }
 });
 
-export const {showFavorites, switchItem} = favoritesSlice.actions
+export const { showFavorites, switchItem } = favoritesSlice.actions
 export default favoritesSlice.reducer

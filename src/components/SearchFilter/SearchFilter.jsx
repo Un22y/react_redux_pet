@@ -27,7 +27,7 @@ const SearchFilter = () => {
         dispatch(addName(name))
         dispatch(fetchCharacters())
         dispatch(fetchData())
-    },[status,gender,name])
+    },[status,gender,name, dispatch])
     // +79094044238 Карен
     
     return (
